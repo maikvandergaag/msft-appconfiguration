@@ -19,4 +19,4 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'Write-Host "$env:DevOps:Config:DemoValue"'
+    script: 'Write-Host "$(DevOps:Config:DemoValue)"'
