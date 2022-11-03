@@ -16,7 +16,7 @@ steps:
     azureSubscription: 'azsub-lz-sponsorship(f124b668-7e3d-4b53-ba80-09c364def1f3)'
     AppConfigurationEndpoint: 'https://azappconfiguration-sponsor.azconfig.io'
     KeyFilter: 'DevOps:*'
-    
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
