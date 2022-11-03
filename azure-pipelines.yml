@@ -12,11 +12,15 @@ pool:
 steps:
 
 - task: AzureAppConfiguration@5
+  displayName: Get Azure App Configurations
   inputs:
     azureSubscription: 'azsub-lz-sponsorship(f124b668-7e3d-4b53-ba80-09c364def1f3)'
     AppConfigurationEndpoint: 'https://azappconfiguration-sponsor.azconfig.io'
     KeyFilter: 'DevOps:*'
 - task: PowerShell@2
+  displayName: Display values from App Configuration
   inputs:
     targetType: 'inline'
-    script: 'Write-Host "$(DevOps:Config:DemoValue)"'
+    script: |
+      Write-Host "Regular value: $(DevOps:Config:DemoValue)"
+      Write-Host "Secret value: $(DevOps:Secret:DevOpsSecret)"
