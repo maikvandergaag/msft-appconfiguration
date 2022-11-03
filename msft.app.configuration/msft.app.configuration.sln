@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "msft.webapp", "msft.webapp\msft.webapp.csproj", "{43D9431B-ACEB-40A9-BD6E-C50C24F0F163}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "msft.api", "msft.api\msft.api.csproj", "{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bicep", "bicep", "{DC2CADC9-ACF7-40BB-AAC9-3156491B6BF4}"
+	ProjectSection(SolutionItems) = preProject
+		..\bicep\appconfig.bicep = ..\bicep\appconfig.bicep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{A7FE3488-1C65-483A-9872-31C53FEADA25}"
+	ProjectSection(SolutionItems) = preProject
+		..\bicep\modules\configstorevalue.bicep = ..\bicep\modules\configstorevalue.bicep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{D313DFA4-804A-40C7-9CC4-A554423955DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43D9431B-ACEB-40A9-BD6E-C50C24F0F163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D9431B-ACEB-40A9-BD6E-C50C24F0F163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D9431B-ACEB-40A9-BD6E-C50C24F0F163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D9431B-ACEB-40A9-BD6E-C50C24F0F163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7FE3488-1C65-483A-9872-31C53FEADA25} = {DC2CADC9-ACF7-40BB-AAC9-3156491B6BF4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {586C13DA-0EF2-4857-BC68-5DDC23B0C7E9}
+	EndGlobalSection
+EndGlobal

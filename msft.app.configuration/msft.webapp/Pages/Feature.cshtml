@@ -1,0 +1,15 @@
+﻿@page
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@model FeatureModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <feature name="Beta">
+        <p>Beta feature is enabled!</p>
+    </feature>
+</div>
