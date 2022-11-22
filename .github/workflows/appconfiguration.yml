@@ -5,10 +5,12 @@ on:
     branches: [ "main" ]
     paths:
       - "configuration/**"
+      - "secrets/**"
 
 jobs:
 
   syncconfig: 
+    name: 'Sync development configuration'
     runs-on: ubuntu-latest 
     steps: 
       - uses: actions/checkout@v1 
@@ -20,3 +22,10 @@ jobs:
           separator: ':' 
           strict: true 
           label: 'Development'
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'secrets/appsettings.secrets.dev.json'
+          format: 'json'
+          connectionString: ${{ secrets.APPCONFIG }}
+          separator: ':'
+          contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
