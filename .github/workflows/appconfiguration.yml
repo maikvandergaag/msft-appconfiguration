@@ -14,19 +14,9 @@ jobs:
     runs-on: ubuntu-latest 
     steps: 
       - uses: actions/checkout@v1 
-      - uses: azure/appconfiguration-sync@v1 
-        with: 
-          configurationFile: 'configuration/appsettings.dev.json' 
-          format: 'json' 
-          connectionString: ${{ secrets.APPCONFIG }} 
-          separator: ':' 
-          strict: true 
-          label: 'Development'
-      - uses: azure/appconfiguration-sync@v1
+      - id: syncconfigitems
+        uses: ./.github/actions/syncconfigitems
         with:
-          configurationFile: 'secrets/appsettings.secrets.dev.json'
-          format: 'json'
-          connectionString: ${{ secrets.APPCONFIG }}
-          separator: ':'
-          contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
-          strict: true 
+          appsetting-file: 'configuration/appsettings.dev.json' 
+          secret-file: 'secrets/appsettings.secrets.dev.json'
+          appsetting-label: 'Development'

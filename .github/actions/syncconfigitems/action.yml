@@ -1,0 +1,30 @@
+name: "Sync Configuration"
+description: "Composite actions of syncing configurations"
+inputs:
+  appsetting-file:
+    description: 'Application setting file'
+    required: true
+  secret-file:
+      description: 'Application secret file'
+      required: true
+  appsetting-label:
+    description: 'Label for the app setting'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: azure/appconfiguration-sync@v1 
+      with: 
+        configurationFile: '${{inputs.appsetting-file}}' 
+        format: 'json' 
+        connectionString: ${{ secrets.APPCONFIG }} 
+        separator: ':' 
+        label: '${{inputs.appsetting-label}}'
+    - uses: azure/appconfiguration-sync@v1
+      with:
+        configurationFile: '${{inputs.secrets-file}}'
+        format: 'json'
+        connectionString: ${{ secrets.APPCONFIG }}
+        separator: ':'
+        label: '${{inputs.appsetting-label}}'
+        contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
