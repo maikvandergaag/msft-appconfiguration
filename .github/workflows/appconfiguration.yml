@@ -20,3 +20,4 @@ jobs:
           appsetting-file: 'configuration/appsettings.dev.json' 
           secret-file: 'secrets/appsettings.secrets.dev.json'
           appsetting-label: 'Development'
+          connectionString: '${{ secrets.APPCONFIG }}'
