@@ -7,7 +7,7 @@ on:
     branches: 
       - 'main' 
     paths: 
-      - 'configuration\appsettings.json' 
+      - 'configuration/appsettings.json' 
 
       jobs: 
         syncconfig: 
