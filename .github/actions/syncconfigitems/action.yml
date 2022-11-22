@@ -26,7 +26,7 @@ runs:
         label: '${{inputs.appsetting-label}}'
     - uses: azure/appconfiguration-sync@v1
       with:
-        configurationFile: '${{inputs.secrets-file}}'
+        configurationFile: '${{inputs.secret-file}}'
         format: 'json'
         connectionString: ${{ inputs.connectionstring }}
         separator: ':'
