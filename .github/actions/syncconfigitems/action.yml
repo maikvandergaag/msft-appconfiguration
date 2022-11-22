@@ -10,6 +10,10 @@ inputs:
   appsetting-label:
     description: 'Label for the app setting'
     required: true
+  connectionstring:
+    description: 'The connectionstring for app configuration'
+    required: true
+    secret: true
 runs:
   using: "composite"
   steps:
@@ -17,14 +21,14 @@ runs:
       with: 
         configurationFile: '${{inputs.appsetting-file}}' 
         format: 'json' 
-        connectionString: ${{ secrets.APPCONFIG }} 
+        connectionString: ${{ inputs.connectionstring }} 
         separator: ':' 
         label: '${{inputs.appsetting-label}}'
     - uses: azure/appconfiguration-sync@v1
       with:
         configurationFile: '${{inputs.secrets-file}}'
         format: 'json'
-        connectionString: ${{ secrets.APPCONFIG }}
+        connectionString: ${{ inputs.connectionstring }}
         separator: ':'
         label: '${{inputs.appsetting-label}}'
         contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
