@@ -29,3 +29,4 @@ jobs:
           connectionString: ${{ secrets.APPCONFIG }}
           separator: ':'
           contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
+          strict: true 
