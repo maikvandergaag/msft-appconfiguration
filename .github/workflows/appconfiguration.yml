@@ -1,23 +1,22 @@
-# This is a basic workflow to help you get started with Actions
+name: Configuration Sync
 
-name: 'Azure App Configuration'
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "configuration/**"
 
-on: 
-  push: 
-    branches: 
-      - 'main' 
-    paths: 
-      - 'configuration/appsettings.json' 
+jobs:
 
-jobs: 
   syncconfig: 
     runs-on: ubuntu-latest 
     steps: 
-      # checkout done so that files in the repo can be read by the sync 
       - uses: actions/checkout@v1 
       - uses: azure/appconfiguration-sync@v1 
         with: 
-          configurationFile: 'appsettings.dev.json' 
+          configurationFile: 'configuration/appsettings.dev.json' 
           format: 'json' 
           connectionString: ${{ secrets.APPCONFIG }} 
           separator: ':' 
+          strict: true 
+          label: 'Development'
