@@ -9,15 +9,15 @@ on:
     paths: 
       - 'configuration/appsettings.json' 
 
-      jobs: 
-        syncconfig: 
-          runs-on: ubuntu-latest 
-          steps: 
-            # checkout done so that files in the repo can be read by the sync 
-            - uses: actions/checkout@v1 
-            - uses: azure/appconfiguration-sync@v1 
-              with: 
-                configurationFile: 'appsettings.dev.json' 
-                format: 'json' 
-                connectionString: ${{ secrets.APPCONFIG }} 
-                separator: ':' 
+jobs: 
+  syncconfig: 
+    runs-on: ubuntu-latest 
+    steps: 
+      # checkout done so that files in the repo can be read by the sync 
+      - uses: actions/checkout@v1 
+      - uses: azure/appconfiguration-sync@v1 
+        with: 
+          configurationFile: 'appsettings.dev.json' 
+          format: 'json' 
+          connectionString: ${{ secrets.APPCONFIG }} 
+          separator: ':' 
