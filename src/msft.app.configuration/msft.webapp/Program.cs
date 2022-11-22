@@ -22,6 +22,7 @@ if (!app.Environment.IsDevelopment()) {
 
 //connecting to App Configuration with EndPoint and Managed Identity
 var endpoint = app.Configuration["AppConfig:Endpoint"];
+
 builder.Configuration.AddAzureAppConfiguration(options => {
     options.Connect(new Uri(endpoint), new DefaultAzureCredential())
             .ConfigureKeyVault(kv => {
@@ -29,11 +30,10 @@ builder.Configuration.AddAzureAppConfiguration(options => {
             })
             .UseFeatureFlags()
             .Select("Demo:*", LabelFilter.Null)
+            .Select(KeyFilter.Any, app.Environment.EnvironmentName)
             .ConfigureRefresh(refreshOptions =>
                 refreshOptions.Register("Demo:Config:Sentinel", refreshAll: true));
 });
-
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

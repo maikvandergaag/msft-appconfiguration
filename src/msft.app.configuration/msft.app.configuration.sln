@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{A7FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{D313DFA4-804A-40C7-9CC4-A554423955DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msft.function", "msft.function\msft.function.csproj", "{340E78EC-94C9-41D6-8E78-EA791C94829D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340E78EC-94C9-41D6-8E78-EA791C94829D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340E78EC-94C9-41D6-8E78-EA791C94829D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340E78EC-94C9-41D6-8E78-EA791C94829D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340E78EC-94C9-41D6-8E78-EA791C94829D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
