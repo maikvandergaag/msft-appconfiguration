@@ -40,6 +40,11 @@ resource configStore 'Microsoft.AppConfiguration/configurationStores@2021-10-01-
     sku: {
         name: 'standard'
     }
+    properties:{
+        disableLocalAuth: true
+        enablePurgeProtection: true
+        softDeleteRetentionInDays:7
+    }
 }
 
 module configValue 'modules/configstorevalue.bicep' = {
