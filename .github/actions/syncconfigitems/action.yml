@@ -6,10 +6,10 @@ inputs:
     required: true
   secret-file:
       description: 'Application secret file'
-      required: true
+      required: false
   appsetting-label:
     description: 'Label for the app setting'
-    required: true
+    required: false
   connectionstring:
     description: 'The connectionstring for app configuration'
     required: true
@@ -18,13 +18,22 @@ runs:
   using: "composite"
   steps:
     - uses: azure/appconfiguration-sync@v1 
+      if: ${{ inputs.appsetting-label != '' }}
       with: 
         configurationFile: '${{inputs.appsetting-file}}' 
         format: 'json' 
         connectionString: ${{ inputs.connectionstring }} 
         separator: ':' 
-        label: '${{inputs.appsetting-label}}'
+        label: '${{ inputs.appsetting-label }} '
+    - uses: azure/appconfiguration-sync@v1 
+      if: ${{ inputs.appsetting-label == '' }}
+      with: 
+        configurationFile: '${{inputs.appsetting-file}}' 
+        format: 'json' 
+        connectionString: ${{ inputs.connectionstring }} 
+        separator: ':' 
     - uses: azure/appconfiguration-sync@v1
+      if: ${{ inputs.secret-file != '' && inputs.appsetting-label != '' }}
       with:
         configurationFile: '${{inputs.secret-file}}'
         format: 'json'
@@ -32,3 +41,11 @@ runs:
         separator: ':'
         contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
         label: '${{inputs.appsetting-label}}'
+    - uses: azure/appconfiguration-sync@v1
+      if: ${{ inputs.secret-file != '' && inputs.appsetting-label == '' }}
+      with:
+        configurationFile: '${{inputs.secret-file}}'
+        format: 'json'
+        connectionString: ${{ inputs.connectionstring }}
+        separator: ':'
+        contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'

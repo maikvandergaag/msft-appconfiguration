@@ -27,10 +27,14 @@ builder.Configuration.AddAzureAppConfiguration(options => {
             .ConfigureKeyVault(kv => {
                 kv.SetCredential(new DefaultAzureCredential());
             })
-            .UseFeatureFlags()
             .Select("DemoApp:*", app.Environment.EnvironmentName)
             .ConfigureRefresh(refreshOptions =>
                 refreshOptions.Register("DemoApp:Sentinel", refreshAll: true));
+    
+    options.UseFeatureFlags(featureFlagOptions => {
+        featureFlagOptions.Select("DemoApp-*", app.Environment.EnvironmentName);
+        featureFlagOptions.CacheExpirationInterval = TimeSpan.FromSeconds(30);
+    });
 });
 
 app.UseHttpsRedirection();

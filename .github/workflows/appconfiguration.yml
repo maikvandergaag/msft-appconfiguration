@@ -9,6 +9,16 @@ on:
 
 jobs:
 
+  syncconfig-default: 
+    name: 'Sync default configuration'
+    runs-on: ubuntu-latest 
+    steps: 
+      - uses: actions/checkout@v1 
+      - id: syncconfigitems
+        uses: ./.github/actions/syncconfigitems
+        with:
+          appsetting-file: 'configuration/appsettings.json' 
+          connectionString: '${{ secrets.APPCONFIG }}'
   syncconfig-dev: 
     name: 'Sync development configuration'
     runs-on: ubuntu-latest 

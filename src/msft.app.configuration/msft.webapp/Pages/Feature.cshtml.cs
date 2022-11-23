@@ -4,7 +4,7 @@ using Microsoft.FeatureManagement;
 using Microsoft.FeatureManagement.Mvc;
 
 namespace msft.webapp.Pages {
-    [FeatureGate("nav-featureflags")]
+    [FeatureGate("DemoApp-Navigation")]
     public class FeatureModel : PageModel {
         private readonly ILogger<IndexModel> _logger;
         private readonly IFeatureManager _featureManager;
