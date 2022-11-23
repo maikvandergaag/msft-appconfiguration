@@ -21,3 +21,27 @@ jobs:
           secret-file: 'secrets/appsettings.secrets.dev.json'
           appsetting-label: 'Development'
           connectionString: '${{ secrets.APPCONFIG }}'
+  syncconfig: 
+    name: 'Sync staging configuration'
+    runs-on: ubuntu-latest 
+    steps: 
+      - uses: actions/checkout@v1 
+      - id: syncconfigitems
+        uses: ./.github/actions/syncconfigitems
+        with:
+          appsetting-file: 'configuration/appsettings.stg.json' 
+          secret-file: 'secrets/appsettings.secrets.stg.json'
+          appsetting-label: 'Staging'
+          connectionString: '${{ secrets.APPCONFIG }}'
+  syncconfig: 
+    name: 'Sync producton configuration'
+    runs-on: ubuntu-latest 
+    steps: 
+      - uses: actions/checkout@v1 
+      - id: syncconfigitems
+        uses: ./.github/actions/syncconfigitems
+        with:
+          appsetting-file: 'configuration/appsettings.prd.json' 
+          secret-file: 'secrets/appsettings.secrets.prd.json'
+          appsetting-label: 'Production'
+          connectionString: '${{ secrets.APPCONFIG }}'
