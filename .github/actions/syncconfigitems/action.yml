@@ -30,5 +30,5 @@ runs:
         format: 'json'
         connectionString: ${{ inputs.connectionstring }}
         separator: ':'
-        label: '${{inputs.appsetting-label}}'
         contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
+        label: '${{inputs.appsetting-label}}'

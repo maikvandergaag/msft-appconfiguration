@@ -30,7 +30,7 @@ builder.Configuration.AddAzureAppConfiguration(options => {
             .UseFeatureFlags()
             .Select("DemoApp:*", app.Environment.EnvironmentName)
             .ConfigureRefresh(refreshOptions =>
-                refreshOptions.Register("DemoApp:Config:Sentinel", refreshAll: true));
+                refreshOptions.Register("DemoApp:Sentinel", refreshAll: true));
 });
 
 app.UseHttpsRedirection();
