@@ -22,6 +22,7 @@ jobs:
           appsetting-label: 'Development'
           connectionString: '${{ secrets.APPCONFIG }}'
   syncconfig-stg: 
+    needs: syncconfig-dev
     name: 'Sync staging configuration'
     runs-on: ubuntu-latest 
     steps: 
@@ -34,6 +35,7 @@ jobs:
           appsetting-label: 'Staging'
           connectionString: '${{ secrets.APPCONFIG }}'
   syncconfig-prd: 
+    needs: syncconfig-stg
     name: 'Sync producton configuration'
     runs-on: ubuntu-latest 
     steps: 
