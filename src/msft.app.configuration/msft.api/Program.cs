@@ -18,17 +18,21 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-//connecting to App Configuration with EndPoint and Managed Identity
 var endpoint = app.Configuration["AppConfig:Endpoint"];
 builder.Configuration.AddAzureAppConfiguration(options => {
     options.Connect(new Uri(endpoint), new DefaultAzureCredential())
-            .ConfigureKeyVault(kv => {
-                kv.SetCredential(new DefaultAzureCredential());
-            })
-            .UseFeatureFlags()
-            .Select("Demo:*", LabelFilter.Null)
+    .ConfigureKeyVault(kv => {
+        kv.SetCredential(new DefaultAzureCredential());
+    })
+            .Select("DemoApi:*", LabelFilter.Null)
+            .Select("DemoApi:*", app.Environment.EnvironmentName)
             .ConfigureRefresh(refreshOptions =>
-                refreshOptions.Register("Demo:Config:Sentinel", refreshAll: true));
+                refreshOptions.Register("DemoApi:Sentinel", app.Environment.EnvironmentName, refreshAll: true));
+
+    options.UseFeatureFlags(featureFlagOptions => {
+        featureFlagOptions.Select("DemoApi-*", app.Environment.EnvironmentName);
+        featureFlagOptions.CacheExpirationInterval = TimeSpan.FromSeconds(30);
+    });
 });
 
 // Configure the HTTP request pipeline.

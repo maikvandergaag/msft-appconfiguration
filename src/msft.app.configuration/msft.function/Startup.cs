@@ -14,14 +14,15 @@ namespace FunctionApp {
             string endpoint = Environment.GetEnvironmentVariable("Endpoint");
             builder.ConfigurationBuilder.AddAzureAppConfiguration(options => {
                 options.Connect(new Uri(endpoint), new DefaultAzureCredential())
-                        .ConfigureKeyVault(kv => {
-                            kv.SetCredential(new DefaultAzureCredential());
-                        })
-                        .UseFeatureFlags()
-                        .Select("Demo:FunctionApp:*", LabelFilter.Null)
-                        .Select("Demo:FunctionApp:*", "Demo")
+                        .Select("DemoFunc:*", LabelFilter.Null)
+                        .Select("DemoFunc:*", "Demo")
                         .ConfigureRefresh(refreshOptions =>
-                            refreshOptions.Register("Demo:Config:Sentinel", refreshAll: true));
+                            refreshOptions.Register("DemoFunc:Sentinel", "Demo", refreshAll: true));
+
+                options.UseFeatureFlags(featureFlagOptions => {
+                    featureFlagOptions.Select("DemoFunc-*");
+                    featureFlagOptions.CacheExpirationInterval = TimeSpan.FromSeconds(30);
+                });
             });
         }
 

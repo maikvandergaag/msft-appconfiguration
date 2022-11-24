@@ -26,7 +26,7 @@ namespace msft.function
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string configKey = "Demo:FunctionApp:Message";
+            string configKey = "DemoFunc:Message";
             string message = _configuration[configKey];
             
             log.LogInformation($"Found the config in Azure App Configuration {message}");

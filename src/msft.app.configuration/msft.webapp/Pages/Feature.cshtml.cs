@@ -9,6 +9,8 @@ namespace msft.webapp.Pages {
         private readonly ILogger<IndexModel> _logger;
         private readonly IFeatureManager _featureManager;
 
+        public string Enabled { get; set; }
+
         public FeatureModel(ILogger<IndexModel> logger, IFeatureManager manager) {
             _logger = logger;
             _featureManager = manager;
@@ -16,6 +18,11 @@ namespace msft.webapp.Pages {
 
         public void OnGet() {
 
+            if (_featureManager.IsEnabledAsync("DemoApp-BetaInCode").Result) {
+                Enabled = "The Beta in Code feature is enabled";
+            } else {
+                Enabled = "The Beta in Code features is disabled";
+            }
         }
     }
 }
