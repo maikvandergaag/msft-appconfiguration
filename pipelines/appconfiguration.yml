@@ -15,7 +15,7 @@ steps:
   displayName: Get Azure App Configurations
   inputs:
     azureSubscription: 'azsub-lz-sponsorship(f124b668-7e3d-4b53-ba80-09c364def1f3)'
-    AppConfigurationEndpoint: 'https://azappconfiguration-sponsor.azconfig.io'
+    AppConfigurationEndpoint: 'https://azappconfig-sponsor.azconfig.io'
     KeyFilter: 'DevOps:*'
 - task: PowerShell@2
   displayName: Display values from App Configuration
