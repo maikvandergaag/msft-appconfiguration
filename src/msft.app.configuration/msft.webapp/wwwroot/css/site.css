@@ -42,15 +42,43 @@ body {
         margin-top:100px;
     }
 
-.configurations table{
-    width:100%;
+.configurations table,
+.secret table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.configurations thead tr,
+.secret thead tr {
+    background-color: #05A1E4;
+    color: #ffffff;
+    text-align: left;
+}
+
+.configurations th,
+.secret th,
+.configurations td,
+.secret td {
+    padding: 12px 15px;
+}
+
+.configurations tbody tr, .secret tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+    .configurations tbody tr:nth-of-type(even), .secret tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .configurations tbody tr:last-of-type, .secret tbody tr:last-of-type {
+        border-bottom: 2px solid #05A1E4;
+    }
 
 .secret, .configurations{
     margin-top:50px;
-}
-
-.secret table {
-    width: 100%;
 }

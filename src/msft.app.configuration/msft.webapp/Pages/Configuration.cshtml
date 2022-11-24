@@ -21,7 +21,7 @@
         </th>
         </thead>
     <tr>
-        <td>
+        <td style="width:50%">
                 Message from config (page):
         </td>
         <td>
@@ -30,12 +30,28 @@
         </tr>
         <tr>
             <td>
-                Message from config (page):
+                ChargeCode:
             </td>
             <td>
-                @Model.configurationMessage
+                @Configuration["ChargeCode"]
             </td>
     </tr>
+        <tr>
+            <td>
+                Sentinel:
+            </td>
+            <td>
+                @Configuration["DemoApp:Sentinel"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Demo:Message
+            </td>
+            <td>
+                @Configuration["Demo:Message"]
+            </td>
+        </tr>
 </table>
 </div>
 
@@ -51,11 +67,19 @@
         </th>
         </thead>
         <tr>
-            <td>
-                Secret reference - Demo:Secrets:Configuration:
+            <td style="width:50%">
+                Secret reference - DemoApp:Secrets:Configuration:
             </td>
             <td>
                 @Configuration["DemoApp:Secrets:Configuration"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Secret reference - DevOps:Secret:DevOpsSecret:
+            </td>
+            <td>
+                @Configuration["DevOps:Secret:DevOpsSecret"]
             </td>
         </tr>
     </table>
