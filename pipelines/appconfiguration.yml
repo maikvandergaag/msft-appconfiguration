@@ -22,5 +22,5 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Write-Host "Regular value: $(DevOps:Config:DemoValue)"
+      Write-Host "Regular value: $(DevOps:DemoValue)"
       Write-Host "Secret value: $(DevOps:Secret:DevOpsSecret)"
