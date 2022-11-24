@@ -12,13 +12,15 @@
 <h3>Configurations:</h3>
 
 <table>
+            <thead>
+            <th>
+            Name:
+        </th>
+        <th>
+            Value:
+        </th>
+        </thead>
     <tr>
-            <th>
-                Name:
-            </th>
-            <th>
-                Value:
-            </th>
         <td>
                 Message from config (page):
         </td>
@@ -32,18 +34,20 @@
 <div class="secret">
 <h3>Secret references:</h3>
     <table>
+        <thead>
+        <th>
+            Name:
+        </th>
+        <th>
+            Value:
+        </th>
+        </thead>
         <tr>
-            <th>
-                Name:
-            </th>
-            <th>
-                Value:
-            </th>
             <td>
                 Secret reference - Demo:Secrets:Configuration:
             </td>
             <td>
-                @Configuration["Demo:Secrets:Configuration"]
+                @Configuration["DemoApp:Secrets:Configuration"]
             </td>
         </tr>
     </table>
