@@ -16,3 +16,41 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.demo-app-image{
+    width: 100%;
+}
+
+    .demo-app-image img {
+        width: 100px;
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .winner img{
+        width:200px;
+    }
+
+    .winner h1{
+        padding-bottom:30px;
+    }
+
+    .container-index{
+        margin-top:100px;
+    }
+
+.configurations table{
+    width:100%;
+}
+
+
+.secret, .configurations{
+    margin-top:50px;
+}
+
+.secret table {
+    width: 100%;
+}

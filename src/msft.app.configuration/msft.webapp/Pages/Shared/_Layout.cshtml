@@ -26,14 +26,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Configuration">Configuration</a>
+                        </li>
                         <feature name="DemoApp-Navigation">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Feature">Feature flags</a>
                             </li>
                         </feature>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - msft.webapp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2022 - @Configuration["DemoApp:Title"] - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

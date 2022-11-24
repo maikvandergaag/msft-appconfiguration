@@ -27,9 +27,10 @@ builder.Configuration.AddAzureAppConfiguration(options => {
             .ConfigureKeyVault(kv => {
                 kv.SetCredential(new DefaultAzureCredential());
             })
+            .Select("DemoApp:*", LabelFilter.Null)
             .Select("DemoApp:*", app.Environment.EnvironmentName)
             .ConfigureRefresh(refreshOptions =>
-                refreshOptions.Register("DemoApp:Sentinel", refreshAll: true));
+                refreshOptions.Register("DemoApp:Sentinel", app.Environment.EnvironmentName , refreshAll: true));
     
     options.UseFeatureFlags(featureFlagOptions => {
         featureFlagOptions.Select("DemoApp-*", app.Environment.EnvironmentName);

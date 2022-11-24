@@ -1,4 +1,5 @@
 ﻿@page
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
 @using Microsoft.Extensions.Configuration
 @inject IConfiguration Configuration
 @model IndexModel
@@ -6,16 +7,19 @@
     ViewData["Title"] = "Home page";
 }
 
+<div class="container-index">
 
-<div>
-    <p>
-        <b>Config: </b>@Configuration["DemoApp:Config:DemoValue"]
-    </p>
-    <p>
-        <b>Secret: </b>@Configuration["Demo:Secrets:Configuration"]
-    </p>
-</div>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <feature name="DemoApp-WK">
+
+        <div class="winner">
+            <h1>Winner:</h1>
+            <feature name="DemoApp-WK-Winner">
+                <img src="~/img/@Configuration["DemoApp:WK:Winner"]" />
+            </feature>
+        </div>
+        <div class="demo-app-image">
+            <img src="~/img/wk.png" />
+        </div>
+    </feature>
 </div>

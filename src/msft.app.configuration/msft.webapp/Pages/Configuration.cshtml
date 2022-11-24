@@ -1,0 +1,50 @@
+﻿@page
+@model ConfigurationModel
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Configuration";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>This page contains some of the configurations from Azure App Configuration.</p>
+
+<div class="configurations">
+<h3>Configurations:</h3>
+
+<table>
+    <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                Value:
+            </th>
+        <td>
+                Message from config (page):
+        </td>
+        <td>
+                @Model.configurationMessage
+        </td>
+    </tr>
+</table>
+</div>
+
+<div class="secret">
+<h3>Secret references:</h3>
+    <table>
+        <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                Value:
+            </th>
+            <td>
+                Secret reference - Demo:Secrets:Configuration:
+            </td>
+            <td>
+                @Configuration["Demo:Secrets:Configuration"]
+            </td>
+        </tr>
+    </table>
+</div>
