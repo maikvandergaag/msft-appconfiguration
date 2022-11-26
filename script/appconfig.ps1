@@ -14,10 +14,12 @@ Function Get-AzAppConfigurationKey {
     Write-Verbose "Trying to invoke app configuration rest api: $url"
 
     $result = Invoke-RestMethod -Uri $url -Headers $apiHeaders -Method "Get"
-    
+
     return $result
 }
 
 $endpoint = "https://azappconfig-sponsor.azconfig.io"
-Get-AzAppConfigurationKey -AppConfiguration $endpoint -Key "DemoPS:Message"
+$Key = "DemoPS:Message"
+
+Get-AzAppConfigurationKey -AppConfiguration $endpoint -Key $Key
 
