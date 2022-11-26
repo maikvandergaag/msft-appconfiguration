@@ -7,19 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "msft.webapp", "msft.webapp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "msft.api", "msft.api\msft.api.csproj", "{CE0EF307-6F08-4DB8-8DFE-2EAA598D3E10}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bicep", "bicep", "{DC2CADC9-ACF7-40BB-AAC9-3156491B6BF4}"
-	ProjectSection(SolutionItems) = preProject
-		..\bicep\appconfig.bicep = ..\bicep\appconfig.bicep
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{A7FE3488-1C65-483A-9872-31C53FEADA25}"
-	ProjectSection(SolutionItems) = preProject
-		..\bicep\modules\configstorevalue.bicep = ..\bicep\modules\configstorevalue.bicep
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{D313DFA4-804A-40C7-9CC4-A554423955DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msft.function", "msft.function\msft.function.csproj", "{340E78EC-94C9-41D6-8E78-EA791C94829D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "msft.function", "msft.function\msft.function.csproj", "{340E78EC-94C9-41D6-8E78-EA791C94829D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,9 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{A7FE3488-1C65-483A-9872-31C53FEADA25} = {DC2CADC9-ACF7-40BB-AAC9-3156491B6BF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {586C13DA-0EF2-4857-BC68-5DDC23B0C7E9}

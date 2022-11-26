@@ -4,8 +4,10 @@ using Microsoft.FeatureManagement;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to web app for application configuration.
+
 builder.Services.AddRazorPages();
+
+// Add services to web app for application configuration.
 builder.Services.AddAzureAppConfiguration();
 builder.Services.AddFeatureManagement();
 
@@ -30,14 +32,15 @@ builder.Configuration.AddAzureAppConfiguration(options => {
                 refreshOptions.Register("DemoApi:Sentinel", app.Environment.EnvironmentName, refreshAll: true));
 
     options.UseFeatureFlags(featureFlagOptions => {
+        featureFlagOptions.Select("DemoApi-*", LabelFilter.Null);
         featureFlagOptions.Select("DemoApi-*", app.Environment.EnvironmentName);
         featureFlagOptions.CacheExpirationInterval = TimeSpan.FromSeconds(30);
     });
 });
 
 // Configure the HTTP request pipeline.
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
